@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padd">3sp</dimen>
+    <dimen name="bigPad">5sp</dimen>
+    <dimen name="padd3">4dp</dimen>
+</resources>

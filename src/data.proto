@@ -1,0 +1,73 @@
+package sfm;
+
+option java_package = "cvg.sfmPipeline.protoLog";
+option java_outer_classname = "ProtoLog";
+
+message CvMatDimProto {
+	optional int32 size = 1;
+	optional int32 step = 2;
+}
+
+message cvMatProto {
+	optional int32 n_dims = 1;
+	repeated CvMatDimProto dims = 2;
+	optional int32 type = 3;
+	optional bytes bytedata = 4;
+	enum ImageType {
+        cvMat   = 0;
+        JPEG    = 1;
+        RAW     = 2;
+    }
+    optional ImageType format = 5 [default = cvMat];
+}
+
+message CameraMatrixProto {
+	repeated float data = 1;
+}
+
+message CameraBodyTransProto {
+	repeated float data = 1;
+}
+
+message MetadataProto {
+	optional float ang_x = 1;
+	optional float ang_y = 2;
+	optional float ang_z = 3;
+	optional float pos_x = 4;
+	optional float pos_y = 5;
+	optional float pos_z = 6;
+
+	enum SensorType {
+		ACCEL 	 	= 0;
+		GYRO	 	= 1;
+		MAGNETO		= 2;
+		LINACCEL 	= 3;
+		ORIENTATION = 4;
+		GRAVITY		= 5;
+		ROTVECT		= 6;
+	}
+
+	optional fixed64 timestamp = 7;
+	optional float val_0 = 8;
+	optional float val_1 = 9;
+	optional float val_2 = 10;
+	optional SensorType type = 11 [default = GRAVITY];
+}
+
+message CvRectProto {
+	optional int32 x = 1;
+	optional int32 y = 2;
+	optional int32 width = 3;
+	optional int32 height = 4;
+}
+
+message FrameProto {
+	repeated cvMatProto images = 1;
+	optional CameraMatrixProto cameraMatrix = 2;
+	optional CameraBodyTransProto cameraBodyTrans = 3;
+	optional MetadataProto metadata = 4;
+	optional fixed64 id = 5;
+	optional fixed64 seq = 6;
+	optional float baseline = 8;
+	optional CvRectProto roi = 9;
+}

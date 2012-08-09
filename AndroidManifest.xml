@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="cvg.sfmPipeline.protoLog" android:versionCode="0" android:versionName="0.2">
+
+  <uses-sdk android:minSdkVersion="15" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.INTERNET" /> 
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+  <uses-feature android:name="android.hardware.camera" />
+  
+  
+  <application 
+      android:icon="@drawable/aloglogo"
+      android:label="@string/app_name">  
+      <activity 
+          android:name=".LoggerActivity" 
+          android:label="@string/app_name"
+      	  android:launchMode="singleTop" 
+      	  android:screenOrientation="landscape"
+          android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+	     <intent-filter> 
+	          	<action android:name="android.intent.action.VIEW" />
+	      		<category android:name="android.intent.category.DEFAULT" />
+	      </intent-filter>
+      </activity>
+           
+      <activity 
+          android:name=".Preferences"
+          android:label="@string/app_name"
+          android:screenOrientation="portrait"
+          android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+	       <intent-filter> 
+	          	<action android:name="android.intent.action.MAIN" />
+	      		<category android:name="android.intent.category.LAUNCHER" />
+	      </intent-filter>
+	  </activity>
+  </application>
+  
+  
+</manifest>
