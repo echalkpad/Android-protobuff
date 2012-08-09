@@ -1,0 +1,4 @@
+Android-protobuff
+=================
+
+Logs camera, sensor and external CSV strings incoming from a UDP connection into a Google protocol buffer. After the data serialization, the buffer can be locally stored in SD or sent as a UDP message. The application will also store as part of the protobuff message the current camera calibration (intrinsic calibaration K) as obtained using the calibration app in https://github.com/FedeCamposeco/Calibration , as well as the transformation from IMU frame of reference to camera frame of reference. The app will try to load from a specific location the calibration or will calibrate the device using the external app 'Calibration'. 
